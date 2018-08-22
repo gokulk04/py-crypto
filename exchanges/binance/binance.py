@@ -53,8 +53,15 @@ class Binance(object):
             "timestamp": Binance.get_server_time()
         })
 
+        signature = Utils.hash_request(secret=self.api_secret,
+                                       message=params)
 
-
+        return Utils.to_json(
+            requests.get(url=EndpointConstants.ACCOUNT,
+                         params=params,
+                         headers=Binance.HEADERS)
+        )
+        
     @staticmethod
     def ping():
         return Utils.to_json(requests.get(EndpointConstants.PING))
