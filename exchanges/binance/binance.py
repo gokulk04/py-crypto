@@ -9,9 +9,16 @@ import exchanges.binance.constants.errors as ErrorConstants
 import exchanges.binance.errors as BinanceErrors
 
 class Binance(object):
+
+    HEADERS = {}
+
     def __init__(self, api_key, api_secret):
         self.api_key = api_key
         self.api_secret = api_secret
+        self.initialize_headers()
+
+    def initialize_headers(self):
+        Binance.HEADERS["X-MBX-APIKEY"] = self.api_key
 
     def initialize(self):
         if bool(Binance.ping()) is not False:
@@ -42,7 +49,11 @@ class Binance(object):
         pass
 
     def get_account(self):
-        pass
+        params = urllib.urlencode({
+            "timestamp": Binance.get_server_time()
+        })
+
+
 
     @staticmethod
     def ping():
