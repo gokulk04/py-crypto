@@ -4,6 +4,7 @@ import exchanges.binance.constants.endpoints as EndpointConstants
 import exchanges.binance.constants.errors as ErrorConstants
 import exchanges.binance.errors as BinanceErrors
 
+
 class Binance(object):
 
     HEADERS = {}
@@ -47,7 +48,7 @@ class Binance(object):
         balances = self.get_all_balances()
         for item in balances:
             if item['asset'] == asset:
-                return item['free']
+                return float(item['free'])
         raise BinanceErrors.InvalidCurrencyError(ErrorConstants.INVALID_CURRENCY_ERROR_MESSAGE)
 
     def get_all_balances(self):
@@ -55,7 +56,6 @@ class Binance(object):
         return data['balances']
 
     def get_account(self):
-
         params = {
             "timestamp": Binance.get_server_time()
         }
