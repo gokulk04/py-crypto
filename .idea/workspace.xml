@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="80d6ccc9-d895-4c08-bb86-541d7473d612" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/exchanges/binance/binance.py" beforeDir="false" afterPath="$PROJECT_DIR$/exchanges/binance/binance.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exchanges/binance/constants/errors.py" beforeDir="false" afterPath="$PROJECT_DIR$/exchanges/binance/constants/errors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exchanges/binance/errors.py" beforeDir="false" afterPath="$PROJECT_DIR$/exchanges/binance/errors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,8 +19,8 @@
       <file leaf-file-name="errors.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/exchanges/binance/errors.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="150">
+              <caret line="10" column="8" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -34,8 +37,8 @@
       <file leaf-file-name="binance.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/exchanges/binance/binance.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="63" column="8" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
+            <state relative-caret-position="375">
+              <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -46,8 +49,8 @@
       <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="300">
+              <caret line="20" column="51" lean-forward="true" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -58,8 +61,8 @@
       <file leaf-file-name="errors.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/exchanges/binance/constants/errors.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="89" selection-start-column="89" selection-end-column="89" />
+            <state relative-caret-position="30">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
@@ -121,14 +124,14 @@
         <option value="$PROJECT_DIR$/exchanges/binance/constants.py" />
         <option value="$PROJECT_DIR$/exchanges/binance/constants/endpoints.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/utils/utils.py" />
         <option value="$PROJECT_DIR$/exchanges/binance/errors.py" />
         <option value="$PROJECT_DIR$/exchanges/binance/constants/errors.py" />
-        <option value="$PROJECT_DIR$/utils/utils.py" />
         <option value="$PROJECT_DIR$/exchanges/binance/binance.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="width" value="977" />
     <option name="height" value="1038" />
@@ -212,14 +215,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="0" width="781" height="830" extended-state="0" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.22446236" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.11037674" />
       <window_info anchor="bottom" id="TODO" order="10" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" />
-      <window_info anchor="bottom" id="Python Console" order="0" visible="true" weight="0.07204611" />
+      <window_info anchor="bottom" id="Python Console" order="0" visible="true" weight="0.07122507" />
       <window_info anchor="bottom" id="Run" order="6" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="1" />
@@ -268,20 +271,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exchanges/binance/errors.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exchanges/binance/constants/errors.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="89" selection-start-column="89" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/client.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -294,18 +283,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        <state relative-caret-position="300">
+          <caret line="20" column="51" lean-forward="true" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/exchanges/binance/errors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="8" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exchanges/binance/constants/errors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/exchanges/binance/binance.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="63" column="8" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
+        <state relative-caret-position="375">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>

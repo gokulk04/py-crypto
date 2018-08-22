@@ -1,8 +1,4 @@
 import requests
-import json
-import urllib
-import hashlib
-import hmac
 from utils.utils import Utils
 import exchanges.binance.constants.endpoints as EndpointConstants
 import exchanges.binance.constants.errors as ErrorConstants
@@ -24,7 +20,9 @@ class Binance(object):
         if bool(Binance.ping()) is not False:
             raise BinanceErrors.APIConnectivityError(ErrorConstants.CONNECTIVITY_ERROR_MESSAGE)
         else:
-            pass
+            if 'balances' in self.get_account():
+                return True
+            raise BinanceErrors.InvalidCredentialsError(ErrorConstants.INVALID_CREDENTIALS_ERROR_MESSAGE)
 
     @staticmethod
     def get_server_time():
@@ -49,19 +47,25 @@ class Binance(object):
         pass
 
     def get_account(self):
-        params = urllib.urlencode({
+
+        params = {
             "timestamp": Binance.get_server_time()
-        })
+        }
 
         signature = Utils.hash_request(secret=self.api_secret,
-                                       message=params)
+                                       params=params)
 
         return Utils.to_json(
             requests.get(url=EndpointConstants.ACCOUNT,
-                         params=params,
+                         params=Binance.params_with_signature(params, signature),
                          headers=Binance.HEADERS)
         )
-        
+
+    @staticmethod
+    def params_with_signature(params, signature):
+        params['signature'] = signature
+        return params
+
     @staticmethod
     def ping():
         return Utils.to_json(requests.get(EndpointConstants.PING))

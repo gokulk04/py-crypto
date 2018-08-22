@@ -5,3 +5,7 @@ class BinanceAPIError(Exception):
 
 class APIConnectivityError(BinanceAPIError):
     pass
+
+
+class InvalidCredentialsError(BinanceAPIError):
+    pass

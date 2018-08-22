@@ -1,5 +1,6 @@
 import json
 import hashlib
+import urllib
 import hmac
 
 
@@ -12,7 +13,9 @@ class Utils(object):
         return json.loads(data.text)
 
     @staticmethod
-    def hash_request(secret, message):
+    def hash_request(secret, params):
+        params_encoded = urllib.urlencode(params)
+
         return hmac.new(secret.encode('utf-8'),
-                        message.encode('utf-8'),
+                        params_encoded.encode('utf-8'),
                         hashlib.sha256).hexdigest()
