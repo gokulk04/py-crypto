@@ -1,0 +1,1 @@
+CONNECTIVITY_ERROR_MESSAGE = "Cannot connect to the Binance API. Please try again later."
