@@ -43,8 +43,16 @@ class Binance(object):
     def get_order_status(self):
         pass
 
-    def get_account_balance(self):
-        pass
+    def get_balance(self, asset):
+        balances = self.get_all_balances()
+        for item in balances:
+            if item['asset'] == asset:
+                return item['free']
+        raise BinanceErrors.InvalidCurrencyError(ErrorConstants.INVALID_CURRENCY_ERROR_MESSAGE)
+
+    def get_all_balances(self):
+        data = self.get_account()
+        return data['balances']
 
     def get_account(self):
 

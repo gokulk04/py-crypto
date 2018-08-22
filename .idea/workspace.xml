@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="80d6ccc9-d895-4c08-bb86-541d7473d612" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/exchanges/binance/binance.py" beforeDir="false" afterPath="$PROJECT_DIR$/exchanges/binance/binance.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exchanges/binance/constants/errors.py" beforeDir="false" afterPath="$PROJECT_DIR$/exchanges/binance/constants/errors.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exchanges/binance/errors.py" beforeDir="false" afterPath="$PROJECT_DIR$/exchanges/binance/errors.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -37,8 +34,8 @@
       <file leaf-file-name="binance.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/exchanges/binance/binance.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="236">
+              <caret line="50" column="8" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -131,7 +128,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="width" value="977" />
     <option name="height" value="1038" />
@@ -159,19 +156,6 @@
               <item name="py-crypto" type="b2602c69:ProjectViewProjectNode" />
               <item name="py-crypto" type="462c0819:PsiDirectoryNode" />
               <item name="exchanges" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="py-crypto" type="b2602c69:ProjectViewProjectNode" />
-              <item name="py-crypto" type="462c0819:PsiDirectoryNode" />
-              <item name="exchanges" type="462c0819:PsiDirectoryNode" />
-              <item name="binance" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="py-crypto" type="b2602c69:ProjectViewProjectNode" />
-              <item name="py-crypto" type="462c0819:PsiDirectoryNode" />
-              <item name="exchanges" type="462c0819:PsiDirectoryNode" />
-              <item name="binance" type="462c0819:PsiDirectoryNode" />
-              <item name="constants" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="py-crypto" type="b2602c69:ProjectViewProjectNode" />
@@ -215,14 +199,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-6" y="0" width="781" height="830" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.11037674" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.22446236" />
       <window_info anchor="bottom" id="TODO" order="10" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" />
-      <window_info anchor="bottom" id="Python Console" order="0" visible="true" weight="0.07122507" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="0" visible="true" weight="0.28962535" />
       <window_info anchor="bottom" id="Run" order="6" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="1" />
@@ -307,8 +291,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/exchanges/binance/binance.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+        <state relative-caret-position="236">
+          <caret line="50" column="8" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>

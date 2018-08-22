@@ -9,3 +9,8 @@ class APIConnectivityError(BinanceAPIError):
 
 class InvalidCredentialsError(BinanceAPIError):
     pass
+
+
+class InvalidCurrencyError(BinanceAPIError):
+    pass
+
