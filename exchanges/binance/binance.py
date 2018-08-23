@@ -31,7 +31,7 @@ class Binance(object):
         return Utils.to_json(requests.get(EndpointConstants.TIME))['serverTime']
 
     @staticmethod
-    def _create_order_query_params(trade_obj):
+    def _create_trade_req_params(trade_obj):
         params = {
             "symbol": trade_obj.get_ticker(),
             "side": trade_obj.get_action(),
@@ -45,15 +45,22 @@ class Binance(object):
 
         return params
 
+    @staticmethod
+    def _create_order_req_params(symbol, order_id):
+        return {
+            "symbol": symbol,
+            "order_id": order_id
+        }
+
     def create_limit_order(self, symbol, side, quantity, price):
         trade = Trade(symbol, side, quantity, "LIMIT", price)
-        params = Binance._create_order_query_params(trade)
+        params = Binance._create_trade_req_params(trade)
 
         return self._create_order(params)
 
     def create_market_order(self, symbol, side, quantity):
         trade = Trade(symbol, side, quantity, "MARKET")
-        params = Binance._create_order_query_params(trade)
+        params = Binance._create_trade_req_params(trade)
 
         return self._create_order(params)
 
@@ -61,8 +68,7 @@ class Binance(object):
 
         params["timestamp"] = Binance.get_server_time()
 
-        signature = Utils.hash_request(secret=self.api_secret,
-                                       params=params)
+        signature = self._create_signature(params)
 
         return Utils.to_json(
             requests.post(url=EndpointConstants.ORDER,
@@ -71,14 +77,9 @@ class Binance(object):
         )
 
     def cancel_order(self, symbol, order_id):
-        params = {
-            "symbol": symbol,
-            "order_id": order_id,
-            "timestamp": Binance.get_server_time()
-        }
+        params = Binance._create_order_req_params(symbol, order_id)
 
-        signature = Utils.hash_request(secret=self.api_secret,
-                                       params=params)
+        signature = self._create_signature(params)
 
         return Utils.to_json(
             requests.delete(url=EndpointConstants.ORDER,
@@ -86,8 +87,16 @@ class Binance(object):
                             headers=Binance.HEADERS)
         )
 
-    def get_order_status(self):
-        pass
+    def get_order_status(self, symbol, order_id):
+        params = Binance._create_order_req_params(symbol, order_id)
+
+        signature = self._create_signature(params)
+
+        return Utils.to_json(
+            requests.get(url=EndpointConstants.ORDER,
+                         params=Binance.params_with_signature(params, signature),
+                         headers=Binance.HEADERS)
+        )
 
     def get_balance(self, asset):
         balances = self.get_all_balances()
@@ -105,14 +114,17 @@ class Binance(object):
             "timestamp": Binance.get_server_time()
         }
 
-        signature = Utils.hash_request(secret=self.api_secret,
-                                       params=params)
+        signature = self._create_signature(params)
 
         return Utils.to_json(
             requests.get(url=EndpointConstants.ACCOUNT,
                          params=Binance.params_with_signature(params, signature),
                          headers=Binance.HEADERS)
         )
+
+    def _create_signature(self, params):
+        return Utils.hash_request(secret=self.api_secret,
+                                  params=params)
 
     @staticmethod
     def params_with_signature(params, signature):
