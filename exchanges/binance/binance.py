@@ -1,8 +1,9 @@
 import requests
 from utils.utils import Utils
-import exchanges.binance.constants.endpoints as EndpointConstants
-import exchanges.binance.constants.errors as ErrorConstants
+from trades.trade import Trade
 import exchanges.binance.errors as BinanceErrors
+import exchanges.binance.constants.errors as ErrorConstants
+import exchanges.binance.constants.endpoints as EndpointConstants
 
 
 class Binance(object):
@@ -29,14 +30,45 @@ class Binance(object):
     def get_server_time():
         return Utils.to_json(requests.get(EndpointConstants.TIME))['serverTime']
 
-    def create_limit_order(self):
-        pass
+    @staticmethod
+    def _create_order_query_params(trade_obj):
+        params = {
+            "symbol": trade_obj.get_ticker(),
+            "side": trade_obj.get_action(),
+            "type": trade_obj.get_order_type(),
+            "quantity": trade_obj.get_quantity(),
+        }
 
-    def create_market_order(self):
-        pass
+        if trade_obj.get_order_type() == "LIMIT":
+            params["timeInForce"] = "GTC"
+            params["price"] = trade_obj.get_price()
 
-    def create_order(self):
-        pass
+        return params
+
+    def create_limit_order(self, symbol, side, quantity, price):
+        trade = Trade(symbol, side, quantity, "LIMIT", price)
+        params = Binance._create_order_query_params(trade)
+
+        return self._create_order(params)
+
+    def create_market_order(self, symbol, side, quantity):
+        trade = Trade(symbol, side, quantity, "MARKET")
+        params = Binance._create_order_query_params(trade)
+
+        return self._create_order(params)
+
+    def _create_order(self, params):
+
+        params["timestamp"] = Binance.get_server_time()
+
+        signature = Utils.hash_request(secret=self.api_secret,
+                                       params=params)
+
+        return Utils.to_json(
+            requests.post(url=EndpointConstants.ORDER,
+                          params=Binance.params_with_signature(params, signature),
+                          headers=Binance.HEADERS)
+        )
 
     def cancel_order(self):
         pass

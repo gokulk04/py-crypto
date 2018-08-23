@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="80d6ccc9-d895-4c08-bb86-541d7473d612" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/exchanges/binance/binance.py" beforeDir="false" afterPath="$PROJECT_DIR$/exchanges/binance/binance.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exchanges/binance/constants/endpoints.py" beforeDir="false" afterPath="$PROJECT_DIR$/exchanges/binance/constants/endpoints.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,17 +26,17 @@
       <file leaf-file-name="endpoints.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/exchanges/binance/constants/endpoints.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="30" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="30" />
+            <state relative-caret-position="75">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="binance.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="binance.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/exchanges/binance/binance.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="37" column="25" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
+            <state relative-caret-position="395">
+              <caret line="68" column="49" lean-forward="true" selection-start-line="68" selection-end-line="69" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -43,7 +44,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="trade.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="trade.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/trades/trade.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
@@ -128,17 +129,17 @@
         <option value="$PROJECT_DIR$/client/client.py" />
         <option value="$PROJECT_DIR$/exchanges/constants.py" />
         <option value="$PROJECT_DIR$/exchanges/binance/constants.py" />
-        <option value="$PROJECT_DIR$/exchanges/binance/constants/endpoints.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/utils/utils.py" />
         <option value="$PROJECT_DIR$/exchanges/binance/errors.py" />
         <option value="$PROJECT_DIR$/exchanges/binance/constants/errors.py" />
-        <option value="$PROJECT_DIR$/exchanges/binance/binance.py" />
+        <option value="$PROJECT_DIR$/exchanges/binance/constants/endpoints.py" />
         <option value="$PROJECT_DIR$/trades/trade.py" />
+        <option value="$PROJECT_DIR$/exchanges/binance/binance.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="width" value="977" />
     <option name="height" value="1038" />
@@ -202,11 +203,11 @@
     <frame x="-6" y="0" width="781" height="830" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.32258064" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.15188172" />
       <window_info anchor="bottom" id="TODO" order="10" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" />
-      <window_info anchor="bottom" id="Python Console" order="0" visible="true" weight="0.14697406" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="0" visible="true" weight="0.26368877" />
       <window_info anchor="bottom" id="Run" order="6" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="1" />
@@ -275,13 +276,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exchanges/binance/constants/endpoints.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="30" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/exchanges/binance/constants/errors.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -289,13 +283,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exchanges/binance/binance.py">
+    <entry file="file://$PROJECT_DIR$/exchanges/binance/constants/endpoints.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="37" column="25" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
@@ -303,6 +294,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exchanges/binance/binance.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="68" column="49" lean-forward="true" selection-start-line="68" selection-end-line="69" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
