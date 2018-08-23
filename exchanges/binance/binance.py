@@ -70,8 +70,21 @@ class Binance(object):
                           headers=Binance.HEADERS)
         )
 
-    def cancel_order(self):
-        pass
+    def cancel_order(self, symbol, order_id):
+        params = {
+            "symbol": symbol,
+            "order_id": order_id,
+            "timestamp": Binance.get_server_time()
+        }
+
+        signature = Utils.hash_request(secret=self.api_secret,
+                                       params=params)
+
+        return Utils.to_json(
+            requests.delete(url=EndpointConstants.ORDER,
+                            params=Binance.params_with_signature(params, signature),
+                            headers=Binance.HEADERS)
+        )
 
     def get_order_status(self):
         pass
