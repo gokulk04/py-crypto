@@ -131,8 +131,8 @@ class Binance(object):
         )
 
     def _create_signature(self, params):
-        return Utils.hash_request(secret=self.api_secret,
-                                  params=params)
+        return Utils.hash_hmac_sha256(secret=self.api_secret,
+                                      params=params)
 
     @staticmethod
     def params_with_signature(params, signature):
