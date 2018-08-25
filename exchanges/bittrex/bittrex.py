@@ -1,3 +1,10 @@
+import time
+import urllib
+import requests
+from utils.utils import Utils
+import exchanges.bittrex.constants.endpoints as EndpointConstants
+
+
 class Bittrex(object):
     HEADERS = {}
 
@@ -24,13 +31,44 @@ class Bittrex(object):
         pass
 
     def get_balance(self, asset):
-        pass
+        endpoint = EndpointConstants.GET_BALANCE
+        new_params = {
+            "currency": asset
+        }
+        return self._make_request(endpoint, new_params)
 
     def get_all_balances(self):
-        pass
+        endpoint = EndpointConstants.GET_ALL_BALANCES
+        return self._make_request(endpoint)
 
-    def get_account(self):
-        pass
+    def _make_request(self, endpoint, new_params=None):
+        params = self._create_params(new_params)
+        url = self._get_request_string(endpoint, params)
+        signature = Utils.hash_hmac_sha512(self.api_secret, url)
 
-    def _create_signature(self, params):
-        pass
+        return Utils.to_json(
+            requests.get(url=url,
+                         params="",
+                         headers=self._get_request_header(signature))
+        )
+
+    def _create_params(self, new_params=None):
+        params = {
+            "apikey": self.api_key,
+            "nonce": str(time.time())
+        }
+
+        if new_params is not None:
+            params.update(new_params)
+
+        return urllib.urlencode(params)
+
+    @staticmethod
+    def _get_request_string(endpoint, params):
+        return endpoint + "?" + params
+
+    @staticmethod
+    def _get_request_header(signature):
+        return {
+            "apisign": signature
+        }
