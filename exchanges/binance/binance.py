@@ -24,7 +24,7 @@ class Binance(object):
         else:
             if 'balances' in self.get_account():
                 return True
-            raise BinanceErrors.InvalidCredentialsError(ErrorConstants.INVALID_CREDENTIALS_ERROR_MESSAGE)
+            raise BinanceErrors.InvalidAPICredentialsError(ErrorConstants.INVALID_CREDENTIALS_ERROR_MESSAGE)
 
     @staticmethod
     def get_server_time():
@@ -52,17 +52,25 @@ class Binance(object):
             "order_id": order_id
         }
 
-    def create_limit_order(self, symbol, side, quantity, price):
-        trade = Trade(symbol, side, quantity, "LIMIT", price)
-        params = Binance._create_trade_req_params(trade)
-
+    def create_limit_order(self, trade_obj):
+        params = Binance._create_trade_req_params(trade_obj)
         return self._create_order(params)
 
-    def create_market_order(self, symbol, side, quantity):
-        trade = Trade(symbol, side, quantity, "MARKET")
-        params = Binance._create_trade_req_params(trade)
+    # def create_limit_order(self, symbol, side, quantity, price):
+    #     trade = Trade(symbol, side, quantity, "LIMIT", price)
+    #     params = Binance._create_trade_req_params(trade)
+    #
+    #     return self._create_order(params)
 
+    def create_market_order(self, trade_obj):
+        params = Binance._create_trade_req_params(trade_obj)
         return self._create_order(params)
+
+    # def create_market_order(self, symbol, side, quantity):
+    #     trade = Trade(symbol, side, quantity, "MARKET")
+    #     params = Binance._create_trade_req_params(trade)
+    #
+    #     return self._create_order(params)
 
     def _create_order(self, params):
 
