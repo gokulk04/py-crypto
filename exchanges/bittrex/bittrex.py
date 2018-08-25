@@ -44,13 +44,12 @@ class Bittrex(object):
         pass
 
     def get_order_status(self, order_id, symbol=None):
-        # endpoint = EndpointConstants.GET_ORDER
-        # new_params = {
-        #     "uuid": order_id
-        # }
-        #
-        # return self._make_request(endpoint, new_params)
-        pass
+        endpoint = EndpointConstants.GET_ORDER
+        new_params = {
+            "uuid": order_id
+        }
+
+        return self._make_request(endpoint, new_params)
 
     def get_order_history(self, symbol=None):
         endpoint = EndpointConstants.GET_ORDER_HISTORY
