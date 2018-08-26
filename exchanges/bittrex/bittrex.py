@@ -17,9 +17,8 @@ class Bittrex(object):
 
     @staticmethod
     def get_ticker_price(symbol):
-        # return float(Bittrex.get_ticker(symbol)['result']['Last'])
-        pass
-    
+        return float(Bittrex.get_ticker(symbol)['result']['Last'])
+
     @staticmethod
     def get_ticker(symbol):
         endpoint = EndpointConstants.GET_TICKER
