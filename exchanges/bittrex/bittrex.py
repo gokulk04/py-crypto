@@ -15,6 +15,19 @@ class Bittrex(object):
     def initialize(self):
         pass
 
+    @staticmethod
+    def get_ticker_price(symbol):
+        # return float(Bittrex.get_ticker(symbol)['result']['Last'])
+        pass
+    
+    @staticmethod
+    def get_ticker(symbol):
+        endpoint = EndpointConstants.GET_TICKER
+        new_params = {
+            "market": symbol
+        }
+        return Bittrex._make_public_request(endpoint, new_params)
+
     def create_limit_order(self, trade_obj):
         # endpoint = Bittrex._get_trade_signal(trade_obj.get_action())
         # new_params = {
@@ -22,6 +35,8 @@ class Bittrex(object):
         #     "quantity": trade_obj.get_quantity(),
         #     "rate": trade_obj.get_price()
         # }
+        #
+        # return self._make_private_request(endpoint, new_params)
         pass
 
     @staticmethod
@@ -49,7 +64,7 @@ class Bittrex(object):
             "uuid": order_id
         }
 
-        return self._make_request(endpoint, new_params)
+        return self._make_private_request(endpoint, new_params)
 
     def get_order_history(self, symbol=None):
         endpoint = EndpointConstants.GET_ORDER_HISTORY
@@ -57,7 +72,7 @@ class Bittrex(object):
         if symbol is not None:
             new_params["market"] = symbol
 
-        return self._make_request(endpoint, new_params)
+        return self._make_private_request(endpoint, new_params)
 
     def get_balance(self, asset):
         endpoint = EndpointConstants.GET_BALANCE
@@ -65,14 +80,14 @@ class Bittrex(object):
             "currency": asset
         }
 
-        return self._make_request(endpoint, new_params)
+        return self._make_private_request(endpoint, new_params)
 
     def get_all_balances(self):
         endpoint = EndpointConstants.GET_ALL_BALANCES
 
-        return self._make_request(endpoint)
+        return self._make_private_request(endpoint)
 
-    def _make_request(self, endpoint, new_params=None):
+    def _make_private_request(self, endpoint, new_params=None):
         params = self._create_params(new_params)
         url = self._get_request_string(endpoint, params)
         signature = Utils.hash_hmac_sha512(self.api_secret, url)
@@ -81,6 +96,14 @@ class Bittrex(object):
             requests.get(url=url,
                          params="",
                          headers=self._get_request_header(signature))
+        )
+
+    @staticmethod
+    def _make_public_request(endpoint, new_params=None):
+        return Utils.to_json(
+            requests.get(url=endpoint,
+                         params=new_params,
+                         headers="")
         )
 
     def _create_params(self, new_params=None):
