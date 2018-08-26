@@ -28,25 +28,23 @@ class Bittrex(object):
         return Bittrex._make_public_request(endpoint, new_params)
 
     def create_limit_order(self, trade_obj):
-        # endpoint = Bittrex._get_trade_signal(trade_obj.get_action())
-        # new_params = {
-        #     "market": trade_obj.get_ticker(),
-        #     "quantity": trade_obj.get_quantity(),
-        #     "rate": trade_obj.get_price()
-        # }
-        #
-        # return self._make_private_request(endpoint, new_params)
-        pass
+        endpoint = Bittrex._get_trade_signal(trade_obj.get_action())
+        new_params = {
+            "market": trade_obj.get_ticker(),
+            "quantity": trade_obj.get_quantity(),
+            "rate": trade_obj.get_price()
+        }
+
+        return self._make_private_request(endpoint, new_params)
 
     @staticmethod
     def _get_trade_signal(signal):
-        # if signal == "SELL":
-        #     return EndpointConstants.ORDER_BUY_LIMIT
-        # elif signal == "BUY":
-        #     return EndpointConstants.ORDER_BUY_LIMIT
-        # else:
-        #     return None
-        pass
+        if signal == "SELL":
+            return EndpointConstants.ORDER_BUY_LIMIT
+        elif signal == "BUY":
+            return EndpointConstants.ORDER_BUY_LIMIT
+        else:
+            return None
 
     def create_market_order(self, trade_obj):
         pass
