@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="80d6ccc9-d895-4c08-bb86-541d7473d612" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/exchanges/bittrex/bittrex.py" beforeDir="false" afterPath="$PROJECT_DIR$/exchanges/bittrex/bittrex.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exchanges/bittrex/constants/endpoints.py" beforeDir="false" afterPath="$PROJECT_DIR$/exchanges/bittrex/constants/endpoints.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -38,8 +37,8 @@
       <file leaf-file-name="bittrex.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/exchanges/bittrex/bittrex.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="60" column="9" lean-forward="true" selection-start-line="60" selection-start-column="9" selection-end-line="60" selection-end-column="9" />
+            <state relative-caret-position="285">
+              <caret line="62" column="63" lean-forward="true" selection-start-line="57" selection-start-column="8" selection-end-line="62" selection-end-column="63" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -253,6 +252,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.13417052" />
       <window_info anchor="bottom" id="TODO" order="10" />
@@ -476,8 +476,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/exchanges/bittrex/bittrex.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="60" column="9" lean-forward="true" selection-start-line="60" selection-start-column="9" selection-end-line="60" selection-end-column="9" />
+        <state relative-caret-position="285">
+          <caret line="62" column="63" lean-forward="true" selection-start-line="57" selection-start-column="8" selection-end-line="62" selection-end-column="63" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>

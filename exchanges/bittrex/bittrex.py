@@ -55,7 +55,12 @@ class Bittrex(object):
         return self._make_private_request(endpoint, new_params)
 
     def get_open_orders(self, symbol=None):
-        pass
+        endpoint = EndpointConstants.GET_OPEN_ORDERS
+        new_params = {}
+        if symbol is not None:
+            new_params["market"] = symbol
+
+        return self._make_private_request(endpoint, new_params)
 
     def get_order_status(self, order_id, symbol=None):
         endpoint = EndpointConstants.GET_ORDER
