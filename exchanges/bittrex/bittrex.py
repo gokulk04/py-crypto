@@ -46,13 +46,15 @@ class Bittrex(object):
         else:
             return None
 
-    def create_market_order(self, trade_obj):
-        pass
-
-    def _create_order(self, params):
-        pass
-
     def cancel_order(self, order_id, symbol=None):
+        endpoint = EndpointConstants.ORDER_CANCEL
+        new_params = {
+            "uuid": order_id
+        }
+
+        return self._make_private_request(endpoint, new_params)
+
+    def get_open_orders(self, symbol=None):
         pass
 
     def get_order_status(self, order_id, symbol=None):
