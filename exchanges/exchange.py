@@ -1,11 +1,8 @@
-import exchanges.constants as ExchangeConstants
-from exchanges.bittrex.bittrex import Bittrex
-from exchanges.binance.binance import Binance
-
+import exchanges.constants as Constants
 
 class Exchange(object):
-    BINANCE = ExchangeConstants.BINANCE
-    BITTREX = ExchangeConstants.BITTREX
+    BINANCE = Constants.BINANCE
+    BITTREX = Constants.BITTREX
 
     def __init__(self, api_key, api_secret):
         self.api_key = api_key
