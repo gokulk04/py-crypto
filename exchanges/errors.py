@@ -20,3 +20,12 @@ class ExchangeAPIError(Error):
         return self.MESSAGE
 
 
+class InvalidAPICredentialsError(ExchangeAPIError):
+
+    MESSAGE = ExchangeConstants.INVALID_API_CREDENTIALS_ERROR
+
+    def __init__(self, exchange, message=None):
+        if message:
+            ExchangeAPIError.__init__(self, exchange, message)
+        else:
+            ExchangeAPIError.__init__(self, exchange, self.get_default_message())
