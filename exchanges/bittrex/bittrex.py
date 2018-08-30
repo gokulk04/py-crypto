@@ -13,7 +13,11 @@ class Bittrex(object):
         self.api_secret = api_secret
 
     def initialize(self):
-        pass
+        if Bittrex.ping() is False:
+            return False
+        if self.get_all_balances()['success'] is False:
+            return False
+        return True
 
     @staticmethod
     def get_ticker_price(symbol):
@@ -130,3 +134,14 @@ class Bittrex(object):
         return {
             "apisign": signature
         }
+
+    @staticmethod
+    def get_markets():
+        endpoint = EndpointConstants.GET_MARKETS
+        return Bittrex._make_public_request(endpoint)
+
+    @staticmethod
+    def ping():
+        if Bittrex.get_markets()['success'] is True:
+            return True
+        return False

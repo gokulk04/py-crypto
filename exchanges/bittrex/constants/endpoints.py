@@ -1,4 +1,5 @@
 API_ENDPOINT = "https://bittrex.com/api/v1.1"
+GET_MARKETS = API_ENDPOINT + "/public/getmarkets"
 GET_ALL_BALANCES = API_ENDPOINT + "/account/getbalances"
 GET_BALANCE = API_ENDPOINT + "/account/getbalance"
 GET_ORDER = API_ENDPOINT + "/account/getorder"

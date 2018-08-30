@@ -1,5 +1,6 @@
 from exchanges.exchange import Exchange
 from exchanges.binance.binance import Binance
+from exchanges.bittrex.bittrex import Bittrex
 from trades.trade import Trade
 
 
