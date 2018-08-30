@@ -1,31 +1,38 @@
-from errors.errors import Error
+from global_errors.errors import Error
 import exchanges.constants as ExchangeConstants
 
 
 class ExchangeAPIError(Error):
 
     MESSAGE = None
+    BINANCE = ExchangeConstants.Binance
+    BITTREX = ExchangeConstants.Bittrex
 
-    def __init__(self, exchange, message):
-        Error.__init__(self, message)
+    def __init__(self, exchange, message=None):
+        if message:
+            Error.__init__(self, message)
+        else:
+            Error.__init__(self, self.get_default_message())
         self.exchange = exchange
+        self.display()
 
     def get_message(self):
         return self.exchange + " API Error: " + self.message
-
-    def display(self):
-        print self.get_message()
 
     def get_default_message(self):
         return self.MESSAGE
 
 
 class InvalidAPICredentialsError(ExchangeAPIError):
-
     MESSAGE = ExchangeConstants.INVALID_API_CREDENTIALS_ERROR
+    pass
 
-    def __init__(self, exchange, message=None):
-        if message:
-            ExchangeAPIError.__init__(self, exchange, message)
-        else:
-            ExchangeAPIError.__init__(self, exchange, self.get_default_message())
+
+class APIConnectionError(ExchangeAPIError):
+    MESSAGE = ExchangeConstants.API_CONNECTION_ERROR
+    pass
+
+
+class InvalidCurrencyError(ExchangeAPIError):
+    MESSAGE = ExchangeConstants.INVALID_CURRENCY_ERROR
+    pass

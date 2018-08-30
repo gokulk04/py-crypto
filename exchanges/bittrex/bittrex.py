@@ -2,7 +2,8 @@ import time
 import urllib
 import requests
 from utils.utils import Utils
-import exchanges.bittrex.constants.endpoints as EndpointConstants
+import exchanges.errors as Errors
+import exchanges.bittrex.constants as Constants
 
 
 class Bittrex(object):
@@ -14,9 +15,9 @@ class Bittrex(object):
 
     def initialize(self):
         if Bittrex.ping() is False:
-            return False
+            raise Errors.APIConnectionError(Errors.ExchangeAPIError.BITTREX)
         if self.get_all_balances()['success'] is False:
-            return False
+            raise Errors.InvalidAPICredentialsError(Errors.ExchangeAPIError.BITTREX)
         return True
 
     @staticmethod
@@ -25,7 +26,7 @@ class Bittrex(object):
 
     @staticmethod
     def get_ticker(symbol):
-        endpoint = EndpointConstants.GET_TICKER
+        endpoint = Constants.GET_TICKER
         new_params = {
             "market": symbol
         }
@@ -44,14 +45,14 @@ class Bittrex(object):
     @staticmethod
     def _get_trade_signal(signal):
         if signal == "SELL":
-            return EndpointConstants.ORDER_BUY_LIMIT
+            return Constants.ORDER_BUY_LIMIT
         elif signal == "BUY":
-            return EndpointConstants.ORDER_BUY_LIMIT
+            return Constants.ORDER_BUY_LIMIT
         else:
             return None
 
     def cancel_order(self, order_id, symbol=None):
-        endpoint = EndpointConstants.ORDER_CANCEL
+        endpoint = Constants.ORDER_CANCEL
         new_params = {
             "uuid": order_id
         }
@@ -59,7 +60,7 @@ class Bittrex(object):
         return self._make_private_request(endpoint, new_params)
 
     def get_open_orders(self, symbol=None):
-        endpoint = EndpointConstants.GET_OPEN_ORDERS
+        endpoint = Constants.GET_OPEN_ORDERS
         new_params = {}
         if symbol is not None:
             new_params["market"] = symbol
@@ -67,7 +68,7 @@ class Bittrex(object):
         return self._make_private_request(endpoint, new_params)
 
     def get_order_status(self, order_id, symbol=None):
-        endpoint = EndpointConstants.GET_ORDER
+        endpoint = Constants.GET_ORDER
         new_params = {
             "uuid": order_id
         }
@@ -75,7 +76,7 @@ class Bittrex(object):
         return self._make_private_request(endpoint, new_params)
 
     def get_order_history(self, symbol=None):
-        endpoint = EndpointConstants.GET_ORDER_HISTORY
+        endpoint = Constants.GET_ORDER_HISTORY
         new_params = {}
         if symbol is not None:
             new_params["market"] = symbol
@@ -83,7 +84,7 @@ class Bittrex(object):
         return self._make_private_request(endpoint, new_params)
 
     def get_balance(self, asset):
-        endpoint = EndpointConstants.GET_BALANCE
+        endpoint = Constants.GET_BALANCE
         new_params = {
             "currency": asset
         }
@@ -91,7 +92,7 @@ class Bittrex(object):
         return self._make_private_request(endpoint, new_params)
 
     def get_all_balances(self):
-        endpoint = EndpointConstants.GET_ALL_BALANCES
+        endpoint = Constants.GET_ALL_BALANCES
 
         return self._make_private_request(endpoint)
 
@@ -137,7 +138,7 @@ class Bittrex(object):
 
     @staticmethod
     def get_markets():
-        endpoint = EndpointConstants.GET_MARKETS
+        endpoint = Constants.GET_MARKETS
         return Bittrex._make_public_request(endpoint)
 
     @staticmethod

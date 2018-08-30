@@ -1,9 +1,8 @@
 import requests
 from utils.utils import Utils
 from trades.trade import Trade
-import exchanges.binance.errors as BinanceErrors
-import exchanges.binance.constants.errors as ErrorConstants
-import exchanges.binance.constants.endpoints as EndpointConstants
+import exchanges.errors as Errors
+import exchanges.binance.constants as Constants
 
 
 class Binance(object):
@@ -20,15 +19,15 @@ class Binance(object):
 
     def initialize(self):
         if bool(Binance.ping()) is not False:
-            raise BinanceErrors.APIConnectivityError(ErrorConstants.CONNECTIVITY_ERROR_MESSAGE)
+            raise Errors.APIConnectionError(Errors.ExchangeAPIError.BINANCE)
         else:
             if 'balances' in self.get_account():
                 return True
-            raise BinanceErrors.InvalidAPICredentialsError(ErrorConstants.INVALID_CREDENTIALS_ERROR_MESSAGE)
+            raise Errors.InvalidAPICredentialsError(Errors.ExchangeAPIError.BINANCE)
 
     @staticmethod
     def get_server_time():
-        return Utils.to_json(requests.get(EndpointConstants.TIME))['serverTime']
+        return Utils.to_json(requests.get(Constants.TIME))['serverTime']
 
     @staticmethod
     def _create_trade_req_params(trade_obj):
@@ -79,7 +78,7 @@ class Binance(object):
         signature = self._create_signature(params)
 
         return Utils.to_json(
-            requests.post(url=EndpointConstants.ORDER,
+            requests.post(url=Constants.ORDER,
                           params=Binance.params_with_signature(params, signature),
                           headers=Binance.HEADERS)
         )
@@ -90,7 +89,7 @@ class Binance(object):
         signature = self._create_signature(params)
 
         return Utils.to_json(
-            requests.delete(url=EndpointConstants.ORDER,
+            requests.delete(url=Constants.ORDER,
                             params=Binance.params_with_signature(params, signature),
                             headers=Binance.HEADERS)
         )
@@ -101,7 +100,7 @@ class Binance(object):
         signature = self._create_signature(params)
 
         return Utils.to_json(
-            requests.get(url=EndpointConstants.ORDER,
+            requests.get(url=Constants.ORDER,
                          params=Binance.params_with_signature(params, signature),
                          headers=Binance.HEADERS)
         )
@@ -111,7 +110,7 @@ class Binance(object):
         for item in balances:
             if item['asset'] == asset:
                 return float(item['free'])
-        raise BinanceErrors.InvalidCurrencyError(ErrorConstants.INVALID_CURRENCY_ERROR_MESSAGE)
+        raise Errors.InvalidCurrencyError(Errors.ExchangeAPIError.BINANCE)
 
     def get_all_balances(self):
         data = self.get_account()
@@ -125,7 +124,7 @@ class Binance(object):
         signature = self._create_signature(params)
 
         return Utils.to_json(
-            requests.get(url=EndpointConstants.ACCOUNT,
+            requests.get(url=Constants.ACCOUNT,
                          params=Binance.params_with_signature(params, signature),
                          headers=Binance.HEADERS)
         )
@@ -141,7 +140,7 @@ class Binance(object):
 
     @staticmethod
     def ping():
-        return Utils.to_json(requests.get(EndpointConstants.PING))
+        return Utils.to_json(requests.get(Constants.PING))
 
     @staticmethod
     def create_req_params(self):
