@@ -1,5 +1,6 @@
 import exchanges.constants as Constants
 
+
 class Exchange(object):
     BINANCE = Constants.BINANCE
     BITTREX = Constants.BITTREX

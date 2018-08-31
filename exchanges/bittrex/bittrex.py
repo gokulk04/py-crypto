@@ -42,6 +42,10 @@ class Bittrex(object):
 
         return self._make_private_request(endpoint, new_params)
 
+    def create_market_order(self, trade_obj):
+        
+        pass
+
     @staticmethod
     def _get_trade_signal(signal):
         if signal == "SELL":

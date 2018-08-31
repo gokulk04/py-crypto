@@ -1,10 +1,10 @@
-import trades.constants as TradeConstants
+import trades.constants as Constants
 
 
 class Trade(object):
 
-    ORDER_TYPE_LIMIT = TradeConstants.ORDER_TYPE_LIMIT
-    ORDER_TYPE_MARKET = TradeConstants.ORDER_TYPE_MARKET
+    ORDER_TYPE_LIMIT = Constants.ORDER_TYPE_LIMIT
+    ORDER_TYPE_MARKET = Constants.ORDER_TYPE_MARKET
 
     def __init__(self, ticker, action, quantity, order_type, price=None):
         self.ticker = ticker

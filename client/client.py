@@ -37,3 +37,5 @@ class Client(object):
     def _get_exchange(self):
         if self.exchange == Exchange.BINANCE:
             return Binance(self.api_key, self.api_secret)
+        if self.exchange == Exchange.BITTREX:
+            return Bittrex(self.api_key, self.api_secret)

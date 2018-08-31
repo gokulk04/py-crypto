@@ -36,3 +36,8 @@ class APIConnectionError(ExchangeAPIError):
 class InvalidCurrencyError(ExchangeAPIError):
     MESSAGE = ExchangeConstants.INVALID_CURRENCY_ERROR
     pass
+
+
+class MarketOrderTypeUnavailableError(ExchangeAPIError):
+    MESSAGE = ExchangeConstants.MARKET_ORDER_TYPE_UNAVAILABLE
+    pass
