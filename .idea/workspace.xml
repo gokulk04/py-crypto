@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="80d6ccc9-d895-4c08-bb86-541d7473d612" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/client/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/constants.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exchanges/binance/binance.py" beforeDir="false" afterPath="$PROJECT_DIR$/exchanges/binance/binance.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exchanges/bittrex/bittrex.py" beforeDir="false" afterPath="$PROJECT_DIR$/exchanges/bittrex/bittrex.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exchanges/bittrex/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/exchanges/bittrex/constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exchanges/exchange.py" beforeDir="false" afterPath="$PROJECT_DIR$/exchanges/exchange.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trades/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/trades/constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trades/trade.py" beforeDir="false" afterPath="$PROJECT_DIR$/trades/trade.py" afterDir="false" />
-    </list>
+    <list default="true" id="80d6ccc9-d895-4c08-bb86-541d7473d612" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,23 +32,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bittrex.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/exchanges/bittrex/bittrex.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1080">
-              <caret line="41" column="9" lean-forward="true" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="constants.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="constants.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/trades/constants.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
               <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1635">
+              <caret line="109" column="10" selection-start-line="109" selection-start-column="10" selection-end-line="109" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -160,6 +148,7 @@
         <option value="$PROJECT_DIR$/trades/trade.py" />
         <option value="$PROJECT_DIR$/exchanges/exchange.py" />
         <option value="$PROJECT_DIR$/trades/constants.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -672,6 +661,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1635">
+          <caret line="109" column="10" selection-start-line="109" selection-start-column="10" selection-end-line="109" selection-end-column="10" />
         </state>
       </provider>
     </entry>
