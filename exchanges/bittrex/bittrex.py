@@ -21,7 +21,7 @@ class Bittrex(object):
         return True
 
     @staticmethod
-    def get_ticker_price(symbol):
+    def get_current_price(symbol):
         return float(Bittrex.get_ticker(symbol)['result']['Last'])
 
     @staticmethod
@@ -43,17 +43,7 @@ class Bittrex(object):
         return self._make_private_request(endpoint, new_params)
 
     def create_market_order(self, trade_obj):
-        
-        pass
-
-    @staticmethod
-    def _get_trade_signal(signal):
-        if signal == "SELL":
-            return Constants.ORDER_BUY_LIMIT
-        elif signal == "BUY":
-            return Constants.ORDER_BUY_LIMIT
-        else:
-            return None
+        raise Errors.MarketOrderTypeUnavailableError(Errors.ExchangeAPIError.BITTREX)
 
     def cancel_order(self, order_id, symbol=None):
         endpoint = Constants.ORDER_CANCEL
@@ -150,3 +140,12 @@ class Bittrex(object):
         if Bittrex.get_markets()['success'] is True:
             return True
         return False
+
+    @staticmethod
+    def _get_trade_signal(signal):
+        if signal == "SELL":
+            return Constants.ORDER_BUY_LIMIT
+        elif signal == "BUY":
+            return Constants.ORDER_BUY_LIMIT
+        else:
+            return None

@@ -5,6 +5,7 @@ from trades.trade import Trade
 
 
 class Client(object):
+
     def __init__(self, exchange, api_key, api_secret):
         self.exchange = exchange
         self.api_key = api_key

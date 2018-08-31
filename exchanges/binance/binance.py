@@ -30,46 +30,28 @@ class Binance(object):
         return Utils.to_json(requests.get(Constants.TIME))['serverTime']
 
     @staticmethod
-    def _create_trade_req_params(trade_obj):
-        params = {
-            "symbol": trade_obj.get_ticker(),
-            "side": trade_obj.get_action(),
-            "type": trade_obj.get_order_type(),
-            "quantity": trade_obj.get_quantity(),
-        }
-
-        if trade_obj.get_order_type() == "LIMIT":
-            params["timeInForce"] = "GTC"
-            params["price"] = trade_obj.get_price()
-
-        return params
+    def get_current_price(symbol):
+        return float(Binance.get_ticker(symbol)['price'])
 
     @staticmethod
-    def _create_order_req_params(symbol, order_id):
-        return {
-            "symbol": symbol,
-            "order_id": order_id
+    def get_ticker(symbol):
+        params = {
+            "symbol": symbol
         }
 
+        return Utils.to_json(
+            requests.get(url=Constants.TICKER,
+                         params=params
+                         )
+        )
+    
     def create_limit_order(self, trade_obj):
         params = Binance._create_trade_req_params(trade_obj)
         return self._create_order(params)
 
-    # def create_limit_order(self, symbol, side, quantity, price):
-    #     trade = Trade(symbol, side, quantity, "LIMIT", price)
-    #     params = Binance._create_trade_req_params(trade)
-    #
-    #     return self._create_order(params)
-
     def create_market_order(self, trade_obj):
         params = Binance._create_trade_req_params(trade_obj)
         return self._create_order(params)
-
-    # def create_market_order(self, symbol, side, quantity):
-    #     trade = Trade(symbol, side, quantity, "MARKET")
-    #     params = Binance._create_trade_req_params(trade)
-    #
-    #     return self._create_order(params)
 
     def _create_order(self, params):
 
@@ -143,6 +125,23 @@ class Binance(object):
         return Utils.to_json(requests.get(Constants.PING))
 
     @staticmethod
-    def create_req_params(self):
-        pass
+    def _create_order_req_params(symbol, order_id):
+        return {
+            "symbol": symbol,
+            "order_id": order_id
+        }
 
+    @staticmethod
+    def _create_trade_req_params(trade_obj):
+        params = {
+            "symbol": trade_obj.get_ticker(),
+            "side": trade_obj.get_action(),
+            "type": trade_obj.get_order_type(),
+            "quantity": trade_obj.get_quantity(),
+        }
+
+        if trade_obj.get_order_type() == "LIMIT":
+            params["timeInForce"] = "GTC"
+            params["price"] = trade_obj.get_price()
+
+        return params
