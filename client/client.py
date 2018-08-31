@@ -15,23 +15,23 @@ class Client(object):
     def _initialize(self):
         return self._get_exchange().initialize()
 
-    def get_current_price(self, symbol):
-        return self._get_exchange().get_current_price(symbol)
+    def get_current_price(self, ticker):
+        return self._get_exchange().get_current_price(ticker)
 
-    def get_ticker(self, symbol):
-        return self._get_exchange().get_ticker(symbol)
+    def get_ticker(self, ticker):
+        return self._get_exchange().get_ticker(ticker)
 
-    def get_open_orders(self, symbol=None):
-        return self._get_exchange().get_open_orders(symbol)
+    def get_open_orders(self, ticker=None):
+        return self._get_exchange().get_open_orders(ticker)
 
-    def get_order_history(self, symbol=None):
-        return self._get_exchange().get_order_history(symbol)
+    def get_order_history(self, ticker=None):
+        return self._get_exchange().get_order_history(ticker)
 
     def get_all_balances(self):
         return self._get_exchange().get_all_balances()
 
-    def get_balance(self, asset):
-        return self._get_exchange().get_balance(asset)
+    def get_balance(self, currency):
+        return self._get_exchange().get_balance(currency)
 
     def create_market_order(self, ticker, action, quantity):
         trade = Trade(ticker, action, quantity, Trade.ORDER_TYPE_MARKET)
@@ -41,8 +41,8 @@ class Client(object):
         trade = Trade(ticker, action, quantity, Trade.ORDER_TYPE_LIMIT, price)
         return self._get_exchange().create_limit_order(trade)
 
-    def cancel_order(self, ticker, order_id):
-        return self._get_exchange().cancel_order(ticker, order_id)
+    def cancel_order(self, order_id, ticker=None):
+        return self._get_exchange().cancel_order(order_id, ticker)
 
     def get_order_status(self, ticker, order_id):
         return self._get_exchange().get_order_status(ticker, order_id)

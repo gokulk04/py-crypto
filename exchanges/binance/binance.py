@@ -104,6 +104,9 @@ class Binance(Exchange):
         )
 
     def cancel_order(self, order_id, symbol):
+        if symbol is None:
+            raise Errors.MissingParameterError(Errors.ExchangeAPIError.BINANCE, "ticker")
+
         params = Binance._create_order_req_params(symbol, order_id)
 
         signature = self._create_signature(params)
