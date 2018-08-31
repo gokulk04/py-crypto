@@ -44,8 +44,8 @@ class Client(object):
     def cancel_order(self, order_id, ticker=None):
         return self._get_exchange().cancel_order(order_id, ticker)
 
-    def get_order_status(self, ticker, order_id):
-        return self._get_exchange().get_order_status(ticker, order_id)
+    def get_order_status(self, order_id, ticker=None):
+        return self._get_exchange().get_order_status(order_id, ticker)
 
     def _get_exchange(self):
         if self.exchange == Exchange.BINANCE:

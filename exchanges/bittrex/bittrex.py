@@ -8,12 +8,11 @@ import exchanges.bittrex.constants as Constants
 
 
 class Bittrex(Exchange):
+
     HEADERS = {}
 
     def __init__(self, api_key, api_secret):
         Exchange.__init__(self, api_key, api_secret)
-        # self.api_key = api_key
-        # self.api_secret = api_secret
 
     def initialize(self):
         if Bittrex.ping() is False:
@@ -146,7 +145,7 @@ class Bittrex(Exchange):
     @staticmethod
     def _get_trade_signal(signal):
         if signal == "SELL":
-            return Constants.ORDER_BUY_LIMIT
+            return Constants.ORDER_SELL_LIMIT
         elif signal == "BUY":
             return Constants.ORDER_BUY_LIMIT
         else:

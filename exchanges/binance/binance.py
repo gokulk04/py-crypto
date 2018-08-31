@@ -12,8 +12,6 @@ class Binance(Exchange):
 
     def __init__(self, api_key, api_secret):
         Exchange.__init__(self, api_key, api_secret)
-        # self.api_key = api_key
-        # self.api_secret = api_secret
         self.initialize_headers()
 
     def initialize_headers(self):
@@ -117,7 +115,10 @@ class Binance(Exchange):
                             headers=Binance.HEADERS)
         )
 
-    def get_order_status(self, symbol, order_id):
+    def get_order_status(self, order_id, symbol):
+        if symbol is None:
+            raise Errors.MissingParameterError(Errors.ExchangeAPIError.BINANCE, "ticker")
+
         params = Binance._create_order_req_params(symbol, order_id)
 
         signature = self._create_signature(params)
@@ -169,7 +170,7 @@ class Binance(Exchange):
     def _create_order_req_params(symbol, order_id):
         return {
             "symbol": symbol,
-            "order_id": order_id,
+            "orderId": order_id,
             "timestamp": Binance.get_server_time()
         }
 

@@ -5,6 +5,8 @@ class Trade(object):
 
     ORDER_TYPE_LIMIT = Constants.ORDER_TYPE_LIMIT
     ORDER_TYPE_MARKET = Constants.ORDER_TYPE_MARKET
+    ORDER_ACTION_BUY = Constants.ORDER_ACTION_BUY
+    ORDER_ACTION_SELL = Constants.ORDER_ACTION_SELL
 
     def __init__(self, ticker, action, quantity, order_type, price=None):
         self.ticker = ticker
@@ -27,10 +29,3 @@ class Trade(object):
 
     def get_price(self):
         return self.price
-
-    def create_limit_order(self):
-        pass
-
-    def create_market_order(self):
-        pass
-
