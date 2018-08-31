@@ -9,3 +9,5 @@ class Exchange(object):
         self.api_key = api_key
         self.api_secret = api_secret
 
+
+

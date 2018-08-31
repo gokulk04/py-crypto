@@ -2,16 +2,18 @@ import time
 import urllib
 import requests
 from utils.utils import Utils
+from exchanges.exchange import Exchange
 import exchanges.errors as Errors
 import exchanges.bittrex.constants as Constants
 
 
-class Bittrex(object):
+class Bittrex(Exchange):
     HEADERS = {}
 
     def __init__(self, api_key, api_secret):
-        self.api_key = api_key
-        self.api_secret = api_secret
+        Exchange.__init__(self, api_key, api_secret)
+        # self.api_key = api_key
+        # self.api_secret = api_secret
 
     def initialize(self):
         if Bittrex.ping() is False:

@@ -1,17 +1,19 @@
 import requests
 from utils.utils import Utils
 from trades.trade import Trade
+from exchanges.exchange import Exchange
 import exchanges.errors as Errors
 import exchanges.binance.constants as Constants
 
 
-class Binance(object):
+class Binance(Exchange):
 
     HEADERS = {}
 
     def __init__(self, api_key, api_secret):
-        self.api_key = api_key
-        self.api_secret = api_secret
+        Exchange.__init__(self, api_key, api_secret)
+        # self.api_key = api_key
+        # self.api_secret = api_secret
         self.initialize_headers()
 
     def initialize_headers(self):

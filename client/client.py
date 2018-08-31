@@ -15,6 +15,9 @@ class Client(object):
     def _initialize(self):
         return self._get_exchange().initialize()
 
+    def get_current_price(self, symbol):
+        return self._get_exchange().get_current_price(symbol)
+
     def get_ticker(self, symbol):
         return self._get_exchange().get_ticker(symbol)
 
