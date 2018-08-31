@@ -103,7 +103,7 @@ class Binance(Exchange):
                           headers=Binance.HEADERS)
         )
 
-    def cancel_order(self, symbol, order_id):
+    def cancel_order(self, order_id, symbol):
         params = Binance._create_order_req_params(symbol, order_id)
 
         signature = self._create_signature(params)
