@@ -44,7 +44,43 @@ class Binance(object):
                          params=params
                          )
         )
-    
+
+    def get_order_history(self, symbol):
+
+        if symbol is None:
+            raise Errors.MissingParameterError(Errors.ExchangeAPIError.BINANCE, "symbol")
+
+        params = {
+            "symbol": symbol,
+            "timestamp": Binance.get_server_time()
+        }
+
+        signature = self._create_signature(params)
+
+        return Utils.to_json(
+            requests.get(url=Constants.All_ORDERS,
+                         params=Binance.params_with_signature(params, signature),
+                         headers=Binance.HEADERS
+                         )
+        )
+
+    def get_open_orders(self, symbol=None):
+        params = {
+            "timestamp": Binance.get_server_time()
+        }
+
+        if symbol:
+            params["symbol"] = symbol
+
+        signature = self._create_signature(params)
+
+        return Utils.to_json(
+            requests.get(url=Constants.OPEN_ORDERS,
+                         params=Binance.params_with_signature(params, signature),
+                         headers=Binance.HEADERS
+                         )
+        )
+
     def create_limit_order(self, trade_obj):
         params = Binance._create_trade_req_params(trade_obj)
         return self._create_order(params)

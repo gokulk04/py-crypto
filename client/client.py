@@ -15,6 +15,15 @@ class Client(object):
     def _initialize(self):
         return self._get_exchange().initialize()
 
+    def get_ticker(self, symbol):
+        return self._get_exchange().get_ticker(symbol)
+
+    def get_open_orders(self, symbol=None):
+        return self._get_exchange().get_open_orders(symbol)
+
+    def get_order_history(self, symbol=None):
+        return self._get_exchange().get_order_history(symbol)
+
     def get_all_balances(self):
         return self._get_exchange().get_all_balances()
 

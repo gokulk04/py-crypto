@@ -6,3 +6,4 @@ INVALID_API_CREDENTIALS_ERROR = "Invalid API key and/or API secret. Pleae try ag
 API_CONNECTION_ERROR = "Cannot connect to the API. Please try again later."
 INVALID_CURRENCY_ERROR = "Invalid currency provided. Please try again with a valid currency."
 MARKET_ORDER_TYPE_UNAVAILABLE = "This exchange does not support Market Orders. Please try agian with a Limit Order"
+MISSING_PARAMETER_ERROR = "Missing the following parameter: "

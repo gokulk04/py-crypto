@@ -25,19 +25,23 @@ class ExchangeAPIError(Error):
 
 class InvalidAPICredentialsError(ExchangeAPIError):
     MESSAGE = ExchangeConstants.INVALID_API_CREDENTIALS_ERROR
-    pass
 
 
 class APIConnectionError(ExchangeAPIError):
     MESSAGE = ExchangeConstants.API_CONNECTION_ERROR
-    pass
 
 
 class InvalidCurrencyError(ExchangeAPIError):
     MESSAGE = ExchangeConstants.INVALID_CURRENCY_ERROR
-    pass
 
 
 class MarketOrderTypeUnavailableError(ExchangeAPIError):
     MESSAGE = ExchangeConstants.MARKET_ORDER_TYPE_UNAVAILABLE
-    pass
+
+
+class MissingParameterError(ExchangeAPIError):
+    MESSAGE = ExchangeConstants.MISSING_PARAMETER_ERROR
+
+    def __init__(self, exchange, param):
+        MissingParameterError.MESSAGE = MissingParameterError.MESSAGE + param
+        ExchangeAPIError.__init__(self, exchange)
