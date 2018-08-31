@@ -169,7 +169,8 @@ class Binance(Exchange):
     def _create_order_req_params(symbol, order_id):
         return {
             "symbol": symbol,
-            "order_id": order_id
+            "order_id": order_id,
+            "timestamp": Binance.get_server_time()
         }
 
     @staticmethod
