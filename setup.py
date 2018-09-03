@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="py-crypto",
-    version="0.0.2",
+    version="0.0.3",
     author="Gokul Kumarresen",
     author_email="gokul.kumarresen@outlook.com",
     description="A cryptocurrency trading library for Python with current support for Binance and Bittrex.",
