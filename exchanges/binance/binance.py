@@ -35,6 +35,7 @@ class Binance(Exchange):
 
     @staticmethod
     def get_ticker(symbol):
+        symbol = Binance._format_ticker(symbol)
         params = {
             "symbol": symbol
         }
@@ -46,15 +47,13 @@ class Binance(Exchange):
         )
 
     def get_order_history(self, symbol):
-
         if symbol is None:
             raise Errors.MissingParameterError(Errors.ExchangeAPIError.BINANCE, "symbol")
-
+        symbol = Binance._format_ticker(symbol)
         params = {
             "symbol": symbol,
             "timestamp": Binance.get_server_time()
         }
-
         signature = self._create_signature(params)
 
         return Utils.to_json(
@@ -68,10 +67,9 @@ class Binance(Exchange):
         params = {
             "timestamp": Binance.get_server_time()
         }
-
         if symbol:
+            symbol = Binance._format_ticker(symbol)
             params["symbol"] = symbol
-
         signature = self._create_signature(params)
 
         return Utils.to_json(
@@ -90,9 +88,7 @@ class Binance(Exchange):
         return self._create_order(params)
 
     def _create_order(self, params):
-
         params["timestamp"] = Binance.get_server_time()
-
         signature = self._create_signature(params)
 
         return Utils.to_json(
@@ -104,9 +100,8 @@ class Binance(Exchange):
     def cancel_order(self, order_id, symbol):
         if symbol is None:
             raise Errors.MissingParameterError(Errors.ExchangeAPIError.BINANCE, "ticker")
-
+        symbol = Binance._format_ticker(symbol)
         params = Binance._create_order_req_params(symbol, order_id)
-
         signature = self._create_signature(params)
 
         return Utils.to_json(
@@ -118,9 +113,8 @@ class Binance(Exchange):
     def get_order_status(self, order_id, symbol):
         if symbol is None:
             raise Errors.MissingParameterError(Errors.ExchangeAPIError.BINANCE, "ticker")
-
+        symbol = Binance._format_ticker(symbol)
         params = Binance._create_order_req_params(symbol, order_id)
-
         signature = self._create_signature(params)
 
         return Utils.to_json(
@@ -144,7 +138,6 @@ class Binance(Exchange):
         params = {
             "timestamp": Binance.get_server_time()
         }
-
         signature = self._create_signature(params)
 
         return Utils.to_json(
@@ -177,7 +170,7 @@ class Binance(Exchange):
     @staticmethod
     def _create_trade_req_params(trade_obj):
         params = {
-            "symbol": trade_obj.get_ticker(),
+            "symbol": Binance._format_ticker(trade_obj.get_ticker()),
             "side": trade_obj.get_action(),
             "type": trade_obj.get_order_type(),
             "quantity": trade_obj.get_quantity(),
@@ -188,3 +181,7 @@ class Binance(Exchange):
             params["price"] = trade_obj.get_price()
 
         return params
+
+    @staticmethod
+    def _format_ticker(symbol):
+        return symbol.split("-")[1] + symbol.split("-")[0]
