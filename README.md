@@ -26,7 +26,7 @@ binance.get_all_balances()
 ```
 
 ## Documentation
-For further details on **py-crypto**'s usage, please refer to its [documentation](https://github.com/gokulk04/py-crypto/wiki).
+For further details on **py-crypto**'s usage, please refer to its [documentation](https://github.com/gokulk04/py-crypto/wiki/Documentation).
 
 ## License
 This project is licensed under the terms of the MIT license and can be viewed [here](https://github.com/gokulk04/py-crypto/blob/master/LICENSE).
