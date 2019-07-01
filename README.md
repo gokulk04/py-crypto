@@ -2,7 +2,7 @@
 [![PyPI version](https://badge.fury.io/py/py-crypto.svg)](https://badge.fury.io/py/py-crypto)
 
 ## About
-**py-crypto** is an open-source, cryptocurrency trading library for Python. This library is ideal for developers who wish to be able to interact with API endpoints of multiple cryptocurrency exchanges at once without wanting to write code specific to each. Simply specify which exchange you would like to interact with by name, along with your API credentials, as shown in the Example section below. Currently, the library offers API support for the following exchanges: [Binance](https://www.binance.com/) and [Bittrex](https://www.bittrex.com/).
+**py-crypto** is an open-source, cryptocurrency trading library for Python. This library is ideal for developers who wish to interact with API endpoints of multiple cryptocurrency exchanges at once without wanting to write code specific to each. Simply specify which exchange you would like to interact with by name, along with your API credentials, as shown in the "Example" section below. Currently, the library offers API support for the following exchanges: [Binance](https://www.binance.com/) and [Bittrex](https://www.bittrex.com/).
 
 ## Installation
 The source code is currently hosted on GitHub at https://github.com/gokulk04/py-crypto
